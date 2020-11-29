@@ -67,3 +67,10 @@
   /*background-color: cyan;*/
   text-align: center;
 }
+
+
+@media all and ( min-width: 200px){
+  figure{
+    width: 20px;
+  }
+}
