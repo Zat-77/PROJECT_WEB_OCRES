@@ -22,7 +22,7 @@ class MenuDashBoard extends React.Component {
 
       <Col >
 
-        <Row lg={5}>
+        <Row xs={1} sm={1} md={3} lg={5}>
 
           
             <div className="Block1">
@@ -76,7 +76,7 @@ class MenuDashBoard extends React.Component {
 
       <Col>
 
-        <Row lg={5}>
+        <Row xs={1} sm={1} lg={5}>
 
           
             <div className="Block5" >
