@@ -21,3 +21,22 @@ Les instructions sont à retrouver dans le pdf instruction.pdf.
 **Le non respect de ces instructions entraînera des pertes de points alors prenez le temps de tout lire et de poser des questions si vous ne comprenez pas**
 
 Pour rappel, la probabilité de recevoir une réponse à un mail envoyé quelques heures avant le rendu est très proche de 0.
+
+
+
+
+
+
+Christopher NICOLAS & Victor DELERME
+Notre projet est un dashboard pour 
+Pour lancer le porjet il faut aller dans l'invite de commande windows
+utiliser cd pour aller jusqu'au dossier frontend.
+Taper 
+-npm install
+-npm install storybook
+-npm install react-bootstrap bootstrap
+-npm start
+
+Problème rencontré
+
+Lien vers notre répartition des taches: https://trello.com/b/H48FGsni/taches
