@@ -16,7 +16,6 @@ class NavBar extends React.Component {
           </Navbar.Text>
           </Navbar.Collapse>
       </Navbar>
-
     );
   }
 }
