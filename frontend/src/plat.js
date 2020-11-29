@@ -33,7 +33,7 @@ const Plat = (props) => {
     <div>
       <div style={titre}>Menu du jour</div>
       <div style={fillerStyles}>
-        <a>Pâte au champignons</a>
+        <a>Pâte aux champignons</a>
       </div>
     </div>
     </div>

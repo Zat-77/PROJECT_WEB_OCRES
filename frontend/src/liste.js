@@ -31,13 +31,13 @@ const Liste = (props) => {
 </Figure>
 
     <div>
-      <div style={titre}>Liste de course</div>
+      <div style={titre}>Liste des courses</div>
       <div style={fillerStyles}>
       <ul>
         <li>2 Pommes</li>
-        <li>1kg Patate</li>
+        <li>1kg Patates</li>
         <li>1 concombre</li>
-        <li>1 petite tomatee</li>
+        <li>1 petite tomate</li>
       </ul>
       </div>
     </div>
