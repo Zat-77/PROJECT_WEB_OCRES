@@ -2,14 +2,14 @@ import React from "react";
 import Figure from 'react-bootstrap/Figure'
 
 
-const Liste = (props) => {
+const Pas = (props) => {
 
   const fillerStyles = {
     height: '100%',
     
     
     borderRadius: 'inherit',
-    textAlign: 'left'
+    textAlign: 'center'
   }
   const titre= {
     color: 'white',
@@ -21,28 +21,23 @@ const Liste = (props) => {
     <div>
     <Figure>
   <Figure.Image
-    width={171}
-    height={180}
+    width={140}
+    height={150}
     alt="171x180"
-    src="https://cdn0.iconfinder.com/data/icons/minimal-set-seven/32/minimal-49-512.png"
+    src="https://img.icons8.com/ios/452/running.png"
   />
   <Figure.Caption>
   </Figure.Caption>
 </Figure>
 
     <div>
-      <div style={titre}>Liste de course</div>
+      <div style={titre}>Nombre de Pas</div>
       <div style={fillerStyles}>
-      <ul>
-        <li>2 Pommes</li>
-        <li>1kg Patate</li>
-        <li>1 concombre</li>
-        <li>1 petite tomatee</li>
-      </ul>
+        <a>14023 pas</a>
       </div>
     </div>
     </div>
   );
 };
 
-export default Liste;
+export default Pas;

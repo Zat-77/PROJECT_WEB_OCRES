@@ -29,27 +29,27 @@
 
 .Block1{
 
-  background-color: black;
+  background-color: #795548;
   text-align: center;
   margin-bottom: 15px;
   margin-right: 20px;
 }
 
 .Block2{
-  background-color: pink;
+  background-color: #8bc34a;
   text-align: center;
   margin-bottom: 15px;
   margin-right: 20px;
 }
 .Block3{
-  background-color: yellow;
+  background-color: #03a9f4;
   text-align: center;
   margin-bottom: 15px;
   margin-right: 20px;
 
 }
 .Block4{
-  background-color: purple;
+  background-color: #f44336;
   text-align: center;
   margin-bottom: 15px;
 
@@ -64,6 +64,6 @@
 
 }
 .Block6{
-  background-color: cyan;
+  /*background-color: cyan;*/
   text-align: center;
 }

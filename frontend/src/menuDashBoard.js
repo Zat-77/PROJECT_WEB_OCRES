@@ -5,6 +5,9 @@ import ProgressBar from './progressBar';
 import SimpleLineGraphe from './simpleLineGraphe';
 import NavBar from './navBar';
 import List from './liste';
+import Plat from './plat'
+import Pas from './nombrePas'
+import Meteo from './meteo'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card , Container, Row, Col} from 'react-bootstrap';
@@ -27,7 +30,7 @@ class MenuDashBoard extends React.Component {
           
             <div className="Block1">
  
-                <ProgressBar/>
+                <Plat/>
               
                   {/*<Button>New Quote</Button> */}
 
@@ -36,7 +39,7 @@ class MenuDashBoard extends React.Component {
 
           
             <div className="Block2">
- 
+              
                 <ProgressBar/>
               
                   {/*<Button>New Quote</Button> */}
@@ -48,7 +51,7 @@ class MenuDashBoard extends React.Component {
           
             <div className="Block3">
  
-                <ProgressBar/>
+                <Meteo/>
               
                   {/*<Button>New Quote</Button> */}
 
@@ -57,7 +60,7 @@ class MenuDashBoard extends React.Component {
 
             <div className="Block4">
  
-                <ProgressBar/>
+                <Pas/>
               
                   {/*<Button>New Quote</Button> */}
 
