@@ -46,6 +46,8 @@ class simpleLineGraph extends React.PureComponent {
           <YAxis />
           <Tooltip />
           <Line connectNulls type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+          <Line connectNulls type="monotone" dataKey="pv" stroke="#82ca9d" />
+          <Line connectNulls type="monotone" dataKey="amt" stroke="#82ca9d" />
         </LineChart>
 
 
