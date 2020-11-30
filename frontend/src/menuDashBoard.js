@@ -13,7 +13,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card , Container, Row, Col} from 'react-bootstrap';
 
 
-
+const titre= {
+  color: 'white',
+  textAlign: 'center',
+  fontSize: 20
+}
 class MenuDashBoard extends React.Component {
   render() {
     return (
@@ -39,7 +43,7 @@ class MenuDashBoard extends React.Component {
           
             <div className="Block2">
 
-                Votre objectif minceur du jour
+                <div style={titre}>Votre objectif minceur du jour</div>
                 <ProgressBar/>
               
                   {/*<Button>New Quote</Button> */}

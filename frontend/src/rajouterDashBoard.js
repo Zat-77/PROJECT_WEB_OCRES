@@ -14,7 +14,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card , Container, Row, Col} from 'react-bootstrap';
 
 
-
+const titre= {
+  color: 'white',
+  textAlign: 'center',
+  fontSize: 20
+}
 class RajouterDashBoard extends React.Component {
   render() {
     return (
@@ -36,7 +40,7 @@ class RajouterDashBoard extends React.Component {
             </div>
           
             <div className="Block2">
-              
+            <div style={titre}>Votre objectif minceur du jour</div>
                 <ProgressBar/>
               
                 <SimpleButton/>

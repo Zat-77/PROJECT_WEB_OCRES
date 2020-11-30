@@ -7,6 +7,7 @@ npm install react-router-dom
 
 */
 import React from 'react';
+import Figure from 'react-bootstrap/Figure';
 
 import MenuDashBoard from './menuDashBoard';
 import RajouterDashBoard from './rajouterDashBoard';
@@ -27,6 +28,16 @@ function App() {
       <Router>
         <div>
         <Navbar>
+              <Figure>
+                <Figure.Image
+                  width={140}
+                  height={150}
+                  alt="171x180"
+                  src="https://image.flaticon.com/icons/png/512/31/31714.png"
+                />
+              <Figure.Caption>
+              </Figure.Caption>
+              </Figure>
           <Navbar.Text>The Leaf</Navbar.Text>
             <div className="links">
               <Link to="/menuDashBoard">Votre DashBoard</Link>
@@ -35,7 +46,16 @@ function App() {
 
             <Navbar.Collapse className="justify-content-end">
             <Navbar.Text>
-              Adrien Kourganoff
+              <Figure>
+                <Figure.Image
+                  width={140}
+                  height={150}
+                  alt="171x180"
+                  src="https://pbs.twimg.com/profile_images/1314237400751788032/ZrKDX1b3_400x400.jpg"
+                />
+              <Figure.Caption>
+              </Figure.Caption>
+              </Figure>
             </Navbar.Text>
             </Navbar.Collapse>
 
