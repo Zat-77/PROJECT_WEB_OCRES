@@ -71,7 +71,11 @@
 
 @media all and ( min-width: 200px){
   figure{
-    
+
     width: 30px;
   }
+}
+
+.links{
+  margin-left: 5px;
 }

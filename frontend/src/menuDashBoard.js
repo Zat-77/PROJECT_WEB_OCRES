@@ -19,7 +19,6 @@ class MenuDashBoard extends React.Component {
     return (
       <Container className="Container1">
 
-      <NavBar/>
 
 
 
@@ -39,7 +38,7 @@ class MenuDashBoard extends React.Component {
 
           
             <div className="Block2">
-            
+
                 Votre objectif minceur du jour
                 <ProgressBar/>
               
