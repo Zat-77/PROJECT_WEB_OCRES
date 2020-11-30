@@ -39,7 +39,8 @@ class MenuDashBoard extends React.Component {
 
           
             <div className="Block2">
-              
+            
+                Votre objectif minceur du jour
                 <ProgressBar/>
               
                   {/*<Button>New Quote</Button> */}

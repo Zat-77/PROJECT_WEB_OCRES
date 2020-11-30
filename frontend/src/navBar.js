@@ -9,10 +9,10 @@ class NavBar extends React.Component {
   render() {
     return (
       <Navbar>
-        <Navbar.Text>Navbar with text</Navbar.Text>
+        <Navbar.Text>The Leaf</Navbar.Text>
           <Navbar.Collapse className="justify-content-end">
           <Navbar.Text>
-            Signed in as: Adrien Kourganoff
+              Adrien Kourganoff
           </Navbar.Text>
           </Navbar.Collapse>
       </Navbar>

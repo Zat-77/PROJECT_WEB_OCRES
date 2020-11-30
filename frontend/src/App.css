@@ -71,6 +71,7 @@
 
 @media all and ( min-width: 200px){
   figure{
-    width: 20px;
+    
+    width: 30px;
   }
 }
