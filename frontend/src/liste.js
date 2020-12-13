@@ -1,8 +1,6 @@
 import React from "react";
 import Figure from 'react-bootstrap/Figure'
-
-
-const Liste = (props) => {
+import axios from 'axios';
 
   const fillerStyles = {
     height: '100%',
@@ -16,7 +14,36 @@ const Liste = (props) => {
     textAlign: 'center',
     fontSize: 20
   }
+  class Liste extends React.PureComponent {
+    constructor (props){
+      super(props);
+      this.state = {
+        liste1 : "2 Pommes",
+        liste2 : "1kg Patate",
+        liste3 : "1 concombre",
+        liste4 : "1 petite tomate", 
+      };
   
+    }
+    async componentDidMount(){
+      try{
+        await axios.get('http://localhost:3000/pas')
+              .then(response => {
+                  if (response.data.length >0) {
+                      this.setState({
+                          pas: "18888"
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            }
+            catch (err){
+              console.log(err)
+            }
+          }
+    
+    render (){
   return (
     <div>
     <Figure>
@@ -34,15 +61,16 @@ const Liste = (props) => {
       <div style={titre}>Liste des courses</div>
       <div style={fillerStyles}>
       <ul>
-        <li>2 Pommes</li>
-        <li>1kg Patates</li>
-        <li>1 concombre</li>
-        <li>1 petite tomate</li>
+        <li>{this.state.liste1}</li>
+        <li>{this.state.liste2}</li>
+        <li>{this.state.liste3}</li>
+        <li>{this.state.liste4}</li>
       </ul>
       </div>
     </div>
     </div>
   );
-};
+}
+  }
 
 export default Liste;

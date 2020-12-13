@@ -1,8 +1,7 @@
 import React from "react";
 import Figure from 'react-bootstrap/Figure'
 
-
-const Plat = (props) => {
+import axios from 'axios';
 
   const fillerStyles = {
     height: '100%',
@@ -16,7 +15,33 @@ const Plat = (props) => {
     textAlign: 'center',
     fontSize: 20
   }
+  class Plat extends React.PureComponent {
+    constructor (props){
+      super(props);
+      this.state = {
+        plat : "Pâte aux champignons", 
+      };
   
+    }
+    async componentDidMount(){
+      try{
+        await axios.get('http://localhost:3000/pas')
+              .then(response => {
+                  if (response.data.length >0) {
+                      this.setState({
+                          pas: "18888"
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            }
+            catch (err){
+              console.log(err)
+            }
+          }
+    
+    render (){  
   return (
     <div>
     <Figure>
@@ -33,11 +58,12 @@ const Plat = (props) => {
     <div>
       <div style={titre}>Menu du jour</div>
       <div style={fillerStyles}>
-        <a>Pâte aux champignons</a>
+        <a>{this.state.plat}</a>
       </div>
     </div>
     </div>
   );
-};
+}
+  }
 
 export default Plat;
