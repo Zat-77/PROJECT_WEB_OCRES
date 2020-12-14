@@ -13,16 +13,25 @@ MongoClient.connect('mongodb+srv://UserNumber1:UserNumber1@cluster0.q6cf4.mongod
     const usersCollection = db.collection('User')
     const platsCollection = db.collection('Plat')
     const courseCollection = db.collection('ListeCourse')
+    const pasSemainePreCollection = db.collection('PasSemainePre')
 
 // Make sure you place body-parser before your CRUD handlers!
     app.use(bodyParser.urlencoded({ extended: true }))
     app.use(bodyParser.json())
-/*
+
+    /*
     app.get('/', (req, res) => {
         res.sendFile(__dirname + '/index.html')
       })
 */
 
+    app.get('/semainePre', (req, res) => {
+        pasSemainePreCollection.find().toArray()
+        .then(results => {
+          console.log(results)
+        })
+        .catch(error => console.error(error))
+    })
     app.get('/user', (req, res) => {
         usersCollection.find().toArray()
         .then(results => {
@@ -45,21 +54,50 @@ MongoClient.connect('mongodb+srv://UserNumber1:UserNumber1@cluster0.q6cf4.mongod
         .catch(error => console.error(error))
     })
 
-/*
-    app.post('/course/add', (req, res) => {
-        courseCollection.insertOne(req.body)
+    app.post('/platAdd', (req, res) => {
+        platsCollection.insertOne(req.body)
             .then(result => {
                 res.redirect('/')
                 })
             .catch(error => console.error(error))
     })
 
+
+    app.post('/courseAdd', (req, res) => {
+        courseCollection.insertOne(req.body)
+            .then(result => {
+                res.redirect('/')
+                })
+            .catch(error => console.error(error))
+    })
+    app.post('/courseDel', (req, res) => {
+        courseCollection.findOneAndDelete(req.body)
+            .then(result => {
+                res.redirect('/')
+                })
+            .catch(error => console.error(error))
+    })
+
+ /*   app.put('/userUpdate', (req, res) => {
+        usersCollection.findOneAndUpdate(
+
+
+                )
+        .then(result => {
+            console.log(result)
+            })
+        .catch(error => console.error(error))
+    })
+*/
+
+
+
     app.put('/quotes', (req, res) =>{
         console.log(req.body)
     })
-*/
-  app.listen(3000, function(){
-    console.log('listening on 3000')
+
+  app.listen(3002, function(){
+    console.log('listening on 3002')
     })
 
 })
