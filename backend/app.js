@@ -9,22 +9,69 @@ var usersRouter = require("./routes/users");
 var pasRouter = require("./routes/nombrePas.js");
 var courseRouter = require("./routes/listeCourse.js");
 
+const Pas = require('./modele/pas.model');
+
 var app = express();
+var cors = require('cors');
 
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-
+app.use(cors());
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/pas", pasRouter);
 app.use("/course", courseRouter);
 
 
+//PArtie Victor Test
+app.get('/add-Pas', (req,res) => {
+    const pas = new Pas({
+        nombre: '2',
+        plat: 'pate'
+    });
+
+    pas.save()
+    .then((result)=> {
+        res.send(result)
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+})
+
+app.get('/all-pas', (req,res)=> {
+
+    Pas.findById('5fd8f78dae2e31598493613d')
+    .then((result) =>{
+        res.send(result.nombre);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+})
+app.get('/pas', (req,res) => {
+    Pas.find()
+    .then((result) =>{
+        res.render('index', {title: 'Test', pas1: result})
+
+    })
+    .catch((err)=> {
+        console.log(err);
+    })
+})
 
 
-const CONNECTION_URL = "mongodb+srv://UserNumber1:UserNumber123@cluster0.q6cf4.mongodb.net/<dbname>?retryWrites=true&w=majority" ;
+
+
+
+
+
+
+
+//Fin Victor Test 
+const CONNECTION_URL = "mongodb+srv://UserNumber1:UserNumber1@cluster0.q6cf4.mongodb.net/WebProject?retryWrites=true&w=majority" ;
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})

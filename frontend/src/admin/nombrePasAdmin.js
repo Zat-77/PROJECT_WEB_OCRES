@@ -1,6 +1,7 @@
 import React from "react";
 import Figure from 'react-bootstrap/Figure'
 import axios from 'axios';
+import { Button, Form, } from 'react-bootstrap';
 
 const fillerStyles = {
   fontWeight: 'bold',
@@ -15,22 +16,21 @@ const titre= {
   fontSize: '20'
 }
 
-class Pas extends React.PureComponent {
+class PasAdmin extends React.PureComponent {
   constructor (props){
     super(props);
 		this.state = {
-		  pas : "t", 
+		  pas : "049", 
 		};
 
   }
   async componentDidMount(){
 		try{
-      await axios.get('http://localhost:5000/all-pas')
+			await axios.get('http://localhost:3000/pas')
             .then(response => {
-              console.log(response)
-                if (response.data) {
+                if (response.data.length >0) {
                     this.setState({
-                        pas: response.data
+                        pas: "18888"
                     })
                 }
             }).catch( err => {
@@ -55,19 +55,21 @@ class Pas extends React.PureComponent {
   <Figure.Caption>
   </Figure.Caption>
 </Figure>
-
-    <div>
-      <div style={titre}>Nombre de Pas</div>
-      <div style={fillerStyles}>
-         {this.state.pas}
-      </div>
-    </div>
+<Form>
+                    <input type="text"  placeholder="Nombre de pas" />
+                    <div>
+                    <Button variant="danger" type="button">
+                        Supprimer
+                    </Button>
+                    <Button variant="primary" type="button">
+                        Créer
+                    </Button>
+                    </div>
+                </Form>
+    
     </div>
   );
   }
 }
 
-
-
-
-export default Pas;
+export default PasAdmin;

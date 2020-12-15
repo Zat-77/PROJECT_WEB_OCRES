@@ -9,14 +9,16 @@ import Plat from './plat';
 import Pas from './nombrePas';
 import Meteo from './meteo';
 import SimpleButton from './button';
-
+import PasAdmin from './admin/nombrePasAdmin.js';
+import PlatAdmin from './admin/platAdmin.js';
+import ListAdmin from './admin/listeAdmin.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card , Container, Row, Col} from 'react-bootstrap';
 
 
 const titre= {
   color: 'white',
-  textAlign: 'center',
+  textAlign: 'center', 
   fontSize: 20
 }
 class RajouterDashBoard extends React.Component {
@@ -33,9 +35,9 @@ class RajouterDashBoard extends React.Component {
           
             <div className="Block1">
  
-                <Plat/>
+                <PlatAdmin/>
               
-                <SimpleButton/>
+                
 
             </div>
           
@@ -51,9 +53,9 @@ class RajouterDashBoard extends React.Component {
 
             <div className="Block4">
  
-                <Pas/>
+                <PasAdmin/>
               
-                <SimpleButton/>
+                
 
             </div>
           
@@ -69,9 +71,9 @@ class RajouterDashBoard extends React.Component {
           
             <div className="Block5" >
  
-                <List/>
+                <ListAdmin/>
               
-                <SimpleButton/>
+               
 
             </div>
           

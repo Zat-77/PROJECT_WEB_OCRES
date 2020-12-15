@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 
-let User = require('../modele/User.js')
+let User = require('../modele/User.model.js')
 
 /* GET users listing. */
 router.get('/', function(req, res) {
