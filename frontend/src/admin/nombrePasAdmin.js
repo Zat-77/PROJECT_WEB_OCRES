@@ -19,6 +19,11 @@ const titre= {
 class PasAdmin extends React.PureComponent {
   constructor (props){
     super(props);
+
+    this.changePas= this.changePas.bind(this);
+    this.envoiePas= this.envoiePas.bind(this);
+
+
 		this.state = {
 		  pas : "049", 
 		};
@@ -26,11 +31,12 @@ class PasAdmin extends React.PureComponent {
   }
   async componentDidMount(){
 		try{
-			await axios.get('http://localhost:3000/pas')
+			await axios.get('http://localhost:5000/all-pas')
             .then(response => {
-                if (response.data.length >0) {
+              console.log(response)
+                if (response.data) {
                     this.setState({
-                        pas: "18888"
+                        pas: response.data
                     })
                 }
             }).catch( err => {
@@ -41,7 +47,29 @@ class PasAdmin extends React.PureComponent {
             console.log(err)
           }
         }
-  
+  changePas(e){
+      this.setState({
+        pas: e.target.value
+      });
+  }
+  envoiePas(e) {
+    e.preventDefault();
+
+    const pas1 = {
+      pas: this.state.pas,
+    }
+
+    console.log(pas1);
+
+    axios.post('http://localhost:5000/change-pas', pas1)
+        .then(res => console.log(res.data));
+
+}
+
+
+
+
+
   render (){
   return (
     <div>
@@ -55,16 +83,22 @@ class PasAdmin extends React.PureComponent {
   <Figure.Caption>
   </Figure.Caption>
 </Figure>
-<Form>
-                    <input type="text"  placeholder="Nombre de pas" />
+<Form onSubmit={this.envoiePas}>
+                    <div className="cont2">
+                        <p>Distance à réaliser:<input type="text" className="input" name="distance" className="entree" value={this.state.pas} onChange={this.changePas}/></p>
+                    </div>
+                    <div className="cont2">
+                       <p><input type="submit" name="objectifNatation" value="Modifier" className="button"/></p>
+                   </div>                         
+                    {/* <input type="text"  placeholder="Nombre de pas" name="nombre" />
                     <div>
-                    <Button variant="danger" type="button">
+                    { <Button variant="danger" type="button">
                         Supprimer
                     </Button>
                     <Button variant="primary" type="button">
                         Créer
-                    </Button>
-                    </div>
+                    </Button> }
+                    </div> */}
                 </Form>
     
     </div>

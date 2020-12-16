@@ -12,7 +12,7 @@ const pasSchema = mongoose.Schema({
 	},
 	plat: {
 		type: String,
-		required: true
+		required: false
 	}
 });
 

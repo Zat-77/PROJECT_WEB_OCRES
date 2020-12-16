@@ -62,6 +62,16 @@ app.get('/pas', (req,res) => {
     })
 })
 
+app.post('/change-pas',(req,res)=> {
+    const filter = {_id : "5fd8f78dae2e31598493613d"};
+    const update = {nombre : req.body.pas};
+    console.log(req.body)
+    Pas.findOneAndUpdate(filter,update)
+        .then(() => res.json('Goal Natation updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+
+})
+
 
 
 
