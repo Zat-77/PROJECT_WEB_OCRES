@@ -37,7 +37,7 @@ class Pas extends React.PureComponent {
                 console.log(err)
             })
           }
-          catch (err){
+          catch (err){ 
             console.log(err)
           }
         }

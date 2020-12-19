@@ -26,7 +26,7 @@ import { Button, Form, } from 'react-bootstrap';
     }
     async componentDidMount(){
       try{
-        await axios.get('http://localhost:3002/pas')
+        await axios.get('')
               .then(response => {
                   if (response.data.length >0) {
                       this.setState({

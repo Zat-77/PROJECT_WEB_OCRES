@@ -85,7 +85,7 @@ class PasAdmin extends React.PureComponent {
 </Figure>
 <Form onSubmit={this.envoiePas}>
                     <div className="cont2">
-                        <p>Distance à réaliser:<input type="text" className="input" name="distance" className="entree" value={this.state.pas} onChange={this.changePas}/></p>
+                        <p>Nombre de Pas:<input type="text" className="input" name="nbrpas" className="entree" value={this.state.pas} onChange={this.changePas}/></p>
                     </div>
                     <div className="cont2">
                        <p><input type="submit" name="objectifNatation" value="Modifier" className="button"/></p>

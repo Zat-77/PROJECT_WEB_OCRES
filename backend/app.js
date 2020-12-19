@@ -9,6 +9,8 @@ var usersRouter = require("./routes/users");
 var pasRouter = require("./routes/nombrePas.js");
 var courseRouter = require("./routes/listeCourse.js");
 
+const ingredientRouteur = require('./routes/ingredient');
+
 const Pas = require('./modele/pas.model');
 
 var app = express();
@@ -23,7 +25,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/pas", pasRouter);
 app.use("/course", courseRouter);
-
+app.use("/liste", ingredientRouteur);
 
 //PArtie Victor Test
 app.get('/add-Pas', (req,res) => {
@@ -67,7 +69,7 @@ app.post('/change-pas',(req,res)=> {
     const update = {nombre : req.body.pas};
     console.log(req.body)
     Pas.findOneAndUpdate(filter,update)
-        .then(() => res.json('Goal Natation updated!'))
+        .then(() => res.json('Nombre de pas changé'))
         .catch(err => res.status(400).json('Error: ' + err));
 
 })

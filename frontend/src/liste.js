@@ -18,20 +18,58 @@ import axios from 'axios';
     constructor (props){
       super(props);
       this.state = {
-        liste1 : "2 Pommes",
-        liste2 : "1kg Patate",
-        liste3 : "1 concombre",
-        liste4 : "1 petite tomate", 
+        liste1 : "-",
+        liste2 : "-",
+        liste3 : "-",
+        liste4 : "-", 
       };
   
     }
     async componentDidMount(){
       try{
-        await axios.get('http://localhost:3000/pas')
+        await axios.get('http://localhost:5000/liste/premier')
               .then(response => {
                   if (response.data.length >0) {
                       this.setState({
-                          pas: "18888"
+                        liste1: response.data
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            
+            
+            await axios.get('http://localhost:5000/liste/deuxieme')
+            .then(response => {
+              
+                if (response.data.length >0) {
+                    this.setState({
+                      liste2: response.data
+                    })
+                }
+            }).catch( err => {
+                console.log(err)
+            })
+          
+          
+          await axios.get('http://localhost:5000/liste/troisieme')
+              .then(response => {
+                console.log("BLa")
+                  if (response.data.length >0) {
+                      this.setState({
+                        liste3: response.data
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            
+            
+            await axios.get('http://localhost:5000/liste/quartieme')
+              .then(response => {
+                  if (response.data.length >0) {
+                      this.setState({
+                        liste4: response.data
                       })
                   }
               }).catch( err => {
@@ -41,7 +79,10 @@ import axios from 'axios';
             catch (err){
               console.log(err)
             }
-          }
+    }
+    
+
+
     
     render (){
   return (

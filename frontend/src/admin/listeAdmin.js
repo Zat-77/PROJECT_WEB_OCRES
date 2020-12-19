@@ -18,21 +18,101 @@ import { Button, Form, } from 'react-bootstrap';
   class ListeAdmin extends React.PureComponent {
     constructor (props){
       super(props);
+      this.changePas= this.changePas.bind(this);
+      this.envoiePas= this.envoiePas.bind(this);
       this.state = {
-        liste1 : "2 Pommes",
-        liste2 : "1kg Patate",
-        liste3 : "1 concombre",
-        liste4 : "1 petite tomate", 
+        liste1 : "-",
+        liste2 : "-",
+        liste3 : "-",
+        liste4 : "-", 
       };
-  
+      
     }
     async componentDidMount(){
       try{
-        await axios.get('http://localhost:3000/pas')
+        await axios.get('http://localhost:5000/liste/premier')
               .then(response => {
                   if (response.data.length >0) {
                       this.setState({
-                          pas: "18888"
+                        liste1: response.data
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            
+            
+            await axios.get('http://localhost:5000/liste/deuxieme')
+            .then(response => {
+              
+                if (response.data.length >0) {
+                    this.setState({
+                      liste2: response.data
+                    })
+                }
+            }).catch( err => {
+                console.log(err)
+            })
+          
+          
+          await axios.get('http://localhost:5000/liste/troisieme')
+              .then(response => {
+                console.log("BLa")
+                  if (response.data.length >0) {
+                      this.setState({
+                        liste3: response.data
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            
+            
+            await axios.get('http://localhost:5000/liste/quartieme')
+              .then(response => {
+                  if (response.data.length >0) {
+                      this.setState({
+                        liste4: response.data
+                      })
+                  }
+              }).catch( err => {
+                  console.log(err)
+              })
+            }
+            catch (err){
+              console.log(err)
+            }
+    }
+    
+
+
+
+
+          changePas(e){
+            this.setState({
+              ingredient: e.target.value
+            });
+        }
+        envoiePas(e) {
+          e.preventDefault();
+      
+          const ingredient1 = {
+            ingredient1: this.state.ingredient,
+          }
+      
+          console.log(ingredient1);
+      
+          axios.post('http://localhost:5000/liste/add-ingredient', ingredient1)
+              .then(res => console.log(res.data));
+      
+      }
+       delete(){
+      try{
+       axios.get('http://localhost:5000/liste/delete')
+              .then(response => {
+                  if (response.data.length >0) {
+                      this.setState({
+                        liste1: response.data
                       })
                   }
               }).catch( err => {
@@ -43,6 +123,8 @@ import { Button, Form, } from 'react-bootstrap';
               console.log(err)
             }
           }
+
+
     
     render (){
   return (
@@ -69,18 +151,40 @@ import { Button, Form, } from 'react-bootstrap';
       </ul>
       </div>
     
-    <Form>
-                    <input type="text"  placeholder="Ingredient" />
+      <Form onSubmit={this.envoiePas}>
+                    <div className="cont2">
+                        <p>Nombre de Pas:<input type="text" className="input" name="nbrpas" className="entree" value={this.state.pas} onChange={this.changePas}/></p>
+                    </div>
+                    <div className="cont2">
+                       <p><input type="submit" name="objectifNatation" value="Modifier" className="button"/></p>
+                   </div>                         
+                    {/* <input type="text"  placeholder="Nombre de pas" name="nombre" />
                     <div>
-                    <Button variant="danger" type="button">
+                    { <Button variant="danger" type="button">
                         Supprimer
                     </Button>
                     <Button variant="primary" type="button">
                         Créer
-                    </Button>
-                    </div>
-                </Form>
+                    </Button> }
+                    </div> */}
+  </Form>
+   
                 </div>
+                <Form onSubmit={this.delete}>
+                    
+                    <div className="cont2">
+                       <p><input type="submit" name="objectifNatation" value="Supprimer" className="button" color="red"/></p>
+                   </div>                         
+                    {/* <input type="text"  placeholder="Nombre de pas" name="nombre" />
+                    <div>
+                    { <Button variant="danger" type="button">
+                        Supprimer
+                    </Button>
+                    <Button variant="primary" type="button">
+                        Créer
+                    </Button> }
+                    </div> */}
+  </Form>
     </div>
   );
 }
